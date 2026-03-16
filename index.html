@@ -210,7 +210,7 @@
 </head>
 <body>
   <div class="app">
-    <h1>My To-Do List</h1>
+    <h1>My Tasks</h1>
     <p class="subtitle">Stay on top of what matters.</p>
 
     <div class="input-row">
@@ -260,7 +260,7 @@
         taskList.innerHTML = `<p class="empty">${
           filter === 'done' ? 'No completed tasks yet.' :
           filter === 'active' ? 'Nothing left to do!' :
-          'Add your first task above.'
+          'No tasks yet.'
         }</p>`;
       } else {
         visible.forEach(t => {
@@ -308,7 +308,7 @@
       }
 
       const remaining = tasks.filter(t => !t.done).length;
-      taskCount.textContent = `${remaining} task${remaining !== 1 ? 's' : ''} remaining`;
+      taskCount.textContent = `${remaining} item${remaining !== 1 ? 's' : ''} remaining`;
       clearDone.style.display = tasks.some(t => t.done) ? 'inline' : 'none';
     }
 
@@ -345,7 +345,7 @@
     });
 
     clearDone.addEventListener('click', () => {
-      tasks = tasks.filter(t => !t.done);
+      // tasks = tasks.filter(t => !t.done);
       save();
       render();
     });
